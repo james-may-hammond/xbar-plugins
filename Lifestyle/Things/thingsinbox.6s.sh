@@ -34,7 +34,7 @@ case "$1" in
 esac
 
 if [ "$1" = 'complete' ]; then
-	tellthings "set toDo to to do named \"$2\" of list \"Inbox\"
+	tellthings "set toDo to to do named \"$2\" of list \"Today\"
 	set status of toDo to completed
 	delay 1.3"
 	exit
@@ -52,11 +52,11 @@ echo "☑"
 
 echo "---"
 
-echo "Inbox"
+echo "Today"
 
 items=$(tellthings 'set targetList to {}
-repeat with n from 1 to count of to dos of list "Inbox"
-	set toDo to item n of to dos of list "Inbox"
+repeat with n from 1 to count of to dos of list "Today"
+	set toDo to item n of to dos of list "Today"
 	copy name of toDo & "|" & status of toDo to the end of the targetList
 	if n > 20 then
 		return targetList
